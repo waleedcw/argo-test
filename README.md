@@ -1,2 +1,3 @@
-helm upgrade --install argo ./helm
-helm delete argo
+helm upgrade --install myapp ./helm
+
+helm delete myapp
