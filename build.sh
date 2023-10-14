@@ -1,7 +1,8 @@
 #!/bin/bash
 TAG=1.1
 
-docker build --build-arg="HTML_CONTENT=app1-$TAG" -t argo:$TAG . 
+# Build
+docker build --build-arg="HTML_CONTENT=app1-$TAG" -t argo:$TAG ./image/
 
 # TESTING
 docker run -it --rm -d --name argo -p 5846:80 argo:$TAG
@@ -10,5 +11,7 @@ curl localhost:5846
 docker rm --force argo
 kind load docker-image argo:$TAG
 docker rmi argo:$TAG
-sed -i 's/1\../'$TAG'/' ../helm/values.yaml
-sed -i 's/1\..\../1.'$TAG'/' ../helm/Chart.yaml
+
+# Update charts
+sed -i 's/1\../'$TAG'/' helm/values.yaml
+sed -i 's/1\..\../1.'$TAG'/' helm/Chart.yaml
