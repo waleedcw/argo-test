@@ -8,7 +8,7 @@ replicaCount: 1
 image:
   repository: argo
   pullPolicy: IfNotPresent
-  tag: "1.2"
+  tag: "1.3"
 
 imagePullSecrets: []
 nameOverride: ""
