@@ -1,5 +1,5 @@
 #!/bin/bash
-TAG=1.4
+TAG=1.5
 
 # Build
 docker build --build-arg="HTML_CONTENT=app1-$TAG" -t argo:$TAG ./image/
@@ -19,3 +19,4 @@ docker rmi argo:$TAG
 sed -i 's/1\../'$TAG'/' helm/values.yaml
 sed -i 's/1\..\../1.'$TAG'/' helm/Chart.yaml
 
+push
