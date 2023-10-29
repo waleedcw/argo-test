@@ -1,5 +1,5 @@
 #!/bin/bash
-TAG=1.3
+TAG=1.4
 
 # Build
 docker build --build-arg="HTML_CONTENT=app1-$TAG" -t argo:$TAG ./image/
