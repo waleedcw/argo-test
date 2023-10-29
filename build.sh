@@ -1,8 +1,11 @@
 #!/bin/bash
-TAG=1.1
+TAG=1.2
 
 # Build
 docker build --build-arg="HTML_CONTENT=app1-$TAG" -t argo:$TAG ./image/
+
+# Old Images remove
+# docker exec -it kind-worker 'crictl rmi $(crictl images | grep -E "import|argo" | awk "{print $3}")'
 
 # TESTING
 docker run -it --rm -d --name argo -p 5846:80 argo:$TAG
@@ -15,3 +18,4 @@ docker rmi argo:$TAG
 # Update charts
 sed -i 's/1\../'$TAG'/' helm/values.yaml
 sed -i 's/1\..\../1.'$TAG'/' helm/Chart.yaml
+
