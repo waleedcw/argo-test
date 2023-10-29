@@ -19,4 +19,3 @@ docker rmi argo:$TAG
 sed -i 's/1\../'$TAG'/' helm/values.yaml
 sed -i 's/1\..\../1.'$TAG'/' helm/Chart.yaml
 
-push
