@@ -1,5 +1,5 @@
 #!/bin/bash
-TAG=1.10
+TAG=1.12
 
 # Build
 docker build --build-arg="HTML_CONTENT=app1-$TAG" -t argo:$TAG ./image/
@@ -16,6 +16,8 @@ kind load docker-image argo:$TAG
 docker rmi argo:$TAG
 
 # Update charts
-sed -i 's/1\../'$TAG'/' helm/values.yaml
-sed -i 's/1\..\../1.'$TAG'/' helm/Chart.yaml
+#sed -i 's/1\../'$TAG'/' helm/values.yaml
+#sed -i 's/1\..\../1.'$TAG'/' helm/Chart.yaml
 
+sed -i 's/tag: ".*"/tag: "'$TAG'"/' helm/values.yaml
+sed -i 's/appVersion: ".*"/appVersion: "1.'$TAG'"/' helm/Chart.yaml

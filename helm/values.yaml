@@ -8,7 +8,7 @@ replicaCount: 1
 image:
   repository: argo
   pullPolicy: IfNotPresent
-  tag: "1.10"
+  tag: "1.12"
 
 imagePullSecrets: []
 nameOverride: ""
@@ -19,5 +19,5 @@ selectorLabels:
   app: "argo"
 
 service:
-  node_port: 30000
+  node_port: 30010
   app_port: 80
