@@ -3,12 +3,12 @@
 # Declare variables to be passed into your templates.
 
 # It is just a demo app with only one pod
-replicaCount: 1
+replicaCount: 2
 
 image:
   repository: argo
   pullPolicy: IfNotPresent
-  tag: "1.12"
+  tag: "1.13"
 
 imagePullSecrets: []
 nameOverride: ""
